@@ -34,9 +34,10 @@ function Historico() {
         />
 
         <BlocoConexao
-          titulo="Seu histórico ainda está vazio"
-          explicacao="As conversas passadas, com data, resumo e etapas concluídas, ficam salvas quando a Conect IA estiver conectada."
+          titulo="Nenhuma conversa guardada até agora"
+          explicacao="Aqui vão ficar as conversas que você tiver com a Conect IA: o dia, o resumo do que você pediu, em quais etapas parou e um botão para retomar de onde ficou. Nada é salvo enquanto a conexão não existir."
         />
+
       </div>
     </AppShell>
   );

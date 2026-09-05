@@ -39,9 +39,10 @@ function Projetos() {
         />
 
         <BlocoConexao
-          titulo="Nenhum projeto para mostrar ainda"
-          explicacao="A lista de projetos, com prévia e data da última alteração, aparece assim que a Conect IA for conectada ao seu espaço de trabalho."
+          titulo="Você ainda não tem projetos aqui"
+          explicacao="Quando tudo estiver conectado, cada projeto aparece nesta lista com o nome que você escolheu, uma miniatura da página inicial, a data da última alteração e um atalho para continuar a conversa. Por enquanto nada é criado de verdade."
         />
+
       </div>
     </AppShell>
   );
