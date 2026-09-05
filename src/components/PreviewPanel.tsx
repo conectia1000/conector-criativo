@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
+import { DicaTermo } from "@/components/DicaTermo";
 import { RefreshCw, MonitorPlay, Github, Link2 } from "lucide-react";
+
 
 export function PreviewPanel() {
   const [estado, setEstado] = useState<"sincronizado" | "verificando">("sincronizado");
@@ -48,6 +50,10 @@ export function PreviewPanel() {
         <span className="text-muted-foreground">
           {estado === "verificando" ? "verificando..." : "sincronizado"}
         </span>
+        <DicaTermo
+          termo="sincronizar"
+          explicacao="Buscar a versão mais recente do seu projeto para que a prévia mostre exatamente o que existe hoje."
+        />
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-border bg-background/50 px-6 py-10 text-center">
@@ -56,12 +62,22 @@ export function PreviewPanel() {
         </div>
         <p className="max-w-[16rem] text-sm leading-relaxed text-muted-foreground">
           Pré-visualização disponível após conectar o GitHub e o Lovable.
+          <DicaTermo
+            termo="GitHub"
+            explicacao="Serviço onde fica guardada, com segurança, cada versão do que foi criado no seu projeto."
+            className="ml-1"
+          />
         </p>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Github className="h-3.5 w-3.5" />
           <span>Status: aguardando conexão</span>
+          <DicaTermo
+            termo="commit"
+            explicacao="Cada vez que uma mudança é salva no seu projeto, ela vira um registro chamado commit — é ele que a prévia vai checar."
+          />
         </div>
       </div>
+
     </aside>
   );
 }
