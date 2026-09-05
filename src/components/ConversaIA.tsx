@@ -57,18 +57,21 @@ function BlocoEtapa({
 export function ConversaIA() {
   const [mensagens, setMensagens] = useState<Mensagem[]>([]);
   const [texto, setTexto] = useState("");
+  const [digitando, setDigitando] = useState(false);
 
   function enviar(conteudo: string) {
     const limpo = conteudo.trim();
     if (!limpo) return;
     const id = `${Date.now()}`;
-    setMensagens((atual) => [
-      ...atual,
-      { id: `u-${id}`, autor: "usuario", texto: limpo },
-      { id: `a-${id}`, autor: "ia", pedido: limpo },
-    ]);
+    setMensagens((atual) => [...atual, { id: `u-${id}`, autor: "usuario", texto: limpo }]);
     setTexto("");
+    setDigitando(true);
+    setTimeout(() => {
+      setMensagens((atual) => [...atual, { id: `a-${id}`, autor: "ia", pedido: limpo }]);
+      setDigitando(false);
+    }, 1000);
   }
+
 
   return (
     <div className="flex h-full min-h-[70vh] flex-col gap-4">
@@ -130,9 +133,28 @@ export function ConversaIA() {
                 </BlocoEtapa>
               </div>
             </div>
-          ),
+        )}
+
+        {digitando && (
+          <div className="flex gap-3" aria-live="polite">
+            <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
+              <Bot className="size-4 animate-pulse" />
+            </span>
+            <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3">
+              <span className="sr-only">A Conect IA está digitando</span>
+              {[0, 150, 300].map((atraso) => (
+                <span
+                  key={atraso}
+                  className="size-1.5 animate-bounce rounded-full bg-muted-foreground"
+                  style={{ animationDelay: `${atraso}ms` }}
+                />
+              ))}
+              <span className="ml-1 text-xs text-muted-foreground">digitando…</span>
+            </div>
+          </div>
         )}
       </div>
+
 
       <div className="sticky bottom-0 rounded-2xl border border-border bg-card p-3 panel-glow">
         <Textarea
