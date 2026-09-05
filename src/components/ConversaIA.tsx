@@ -133,7 +133,9 @@ export function ConversaIA() {
                 </BlocoEtapa>
               </div>
             </div>
+          ),
         )}
+
 
         {digitando && (
           <div className="flex gap-3" aria-live="polite">
