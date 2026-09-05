@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlteracoesRouteImport } from './routes/alteracoes'
+import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
+import { Route as HistoricoRouteImport } from './routes/historico'
+import { Route as IntegracoesRouteImport } from './routes/integracoes'
+import { Route as NovaConversaRouteImport } from './routes/nova-conversa'
+import { Route as ProjetosRouteImport } from './routes/projetos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlteracoesRoute = AlteracoesRouteImport.update({
+  id: '/alteracoes',
+  path: '/alteracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoricoRoute = HistoricoRouteImport.update({
+  id: '/historico',
+  path: '/historico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegracoesRoute = IntegracoesRouteImport.update({
+  id: '/integracoes',
+  path: '/integracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NovaConversaRoute = NovaConversaRouteImport.update({
+  id: '/nova-conversa',
+  path: '/nova-conversa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetosRoute = ProjetosRouteImport.update({
+  id: '/projetos',
+  path: '/projetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alteracoes': typeof AlteracoesRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/historico': typeof HistoricoRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/nova-conversa': typeof NovaConversaRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alteracoes': typeof AlteracoesRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/historico': typeof HistoricoRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/nova-conversa': typeof NovaConversaRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alteracoes': typeof AlteracoesRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/historico': typeof HistoricoRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/nova-conversa': typeof NovaConversaRoute
+  '/projetos': typeof ProjetosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alteracoes'
+    | '/configuracoes'
+    | '/historico'
+    | '/integracoes'
+    | '/nova-conversa'
+    | '/projetos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alteracoes'
+    | '/configuracoes'
+    | '/historico'
+    | '/integracoes'
+    | '/nova-conversa'
+    | '/projetos'
+  id:
+    | '__root__'
+    | '/'
+    | '/alteracoes'
+    | '/configuracoes'
+    | '/historico'
+    | '/integracoes'
+    | '/nova-conversa'
+    | '/projetos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlteracoesRoute: typeof AlteracoesRoute
+  ConfiguracoesRoute: typeof ConfiguracoesRoute
+  HistoricoRoute: typeof HistoricoRoute
+  IntegracoesRoute: typeof IntegracoesRoute
+  NovaConversaRoute: typeof NovaConversaRoute
+  ProjetosRoute: typeof ProjetosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alteracoes': {
+      id: '/alteracoes'
+      path: '/alteracoes'
+      fullPath: '/alteracoes'
+      preLoaderRoute: typeof AlteracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configuracoes': {
+      id: '/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historico': {
+      id: '/historico'
+      path: '/historico'
+      fullPath: '/historico'
+      preLoaderRoute: typeof HistoricoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integracoes': {
+      id: '/integracoes'
+      path: '/integracoes'
+      fullPath: '/integracoes'
+      preLoaderRoute: typeof IntegracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nova-conversa': {
+      id: '/nova-conversa'
+      path: '/nova-conversa'
+      fullPath: '/nova-conversa'
+      preLoaderRoute: typeof NovaConversaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projetos': {
+      id: '/projetos'
+      path: '/projetos'
+      fullPath: '/projetos'
+      preLoaderRoute: typeof ProjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlteracoesRoute: AlteracoesRoute,
+  ConfiguracoesRoute: ConfiguracoesRoute,
+  HistoricoRoute: HistoricoRoute,
+  IntegracoesRoute: IntegracoesRoute,
+  NovaConversaRoute: NovaConversaRoute,
+  ProjetosRoute: ProjetosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
