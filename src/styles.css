@@ -160,14 +160,6 @@
   box-shadow: var(--shadow-glow), var(--shadow-panel);
 }
 
-@utility soft-glow {
-  position: relative;
-}
-
-@utility soft-glow-after {
-  content: "";
-}
-
 @utility brand-gradient {
   background-image: var(--gradient-brand);
   color: var(--primary-foreground);
