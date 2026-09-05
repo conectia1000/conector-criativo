@@ -67,9 +67,9 @@
   --background: oklch(0.191 0.02 298.2);
   --foreground: oklch(0.966 0.011 303.1);
 
-  --card: oklch(0.224 0.026 298.4);
+  --card: oklch(0.245 0.03 298.4);
   --card-foreground: oklch(0.966 0.011 303.1);
-  --popover: oklch(0.224 0.026 298.4);
+  --popover: oklch(0.245 0.03 298.4);
   --popover-foreground: oklch(0.966 0.011 303.1);
 
   --brand-start: oklch(0.686 0.214 5.9);
@@ -95,7 +95,7 @@
   --warning: oklch(0.83 0.14 78);
   --warning-foreground: oklch(0.24 0.04 70);
 
-  --border: oklch(0.305 0.028 297);
+  --border: oklch(0.325 0.03 297);
   --input: oklch(0.305 0.028 297);
   --ring: oklch(0.686 0.214 5.9);
 
@@ -157,7 +157,7 @@
 }
 
 @utility panel-glow {
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-glow), var(--shadow-panel);
 }
 
 @utility brand-gradient {

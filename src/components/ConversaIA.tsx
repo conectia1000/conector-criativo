@@ -77,7 +77,7 @@ export function ConversaIA() {
     <div className="flex h-full min-h-[70vh] flex-col gap-4">
       <div className="flex-1 space-y-6">
         {mensagens.length === 0 && (
-          <div className="rounded-2xl border border-border surface-command p-8 text-center">
+          <div className="rounded-2xl border border-border surface-command p-8 text-center panel-glow">
             <LogoMark className="mx-auto size-10" />
             <h2 className="mt-3 font-display text-xl font-semibold">
               Descreva o que você quer, em português simples

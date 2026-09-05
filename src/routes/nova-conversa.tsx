@@ -74,10 +74,8 @@ function NovaConversa() {
           </div>
         </div>
 
-        <div className="grid items-start gap-6 lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_320px]">
-          <ConversaIA />
-          <PreviewPanel />
-        </div>
+        <ConversaIA />
+        <PreviewPanel />
       </div>
     </AppShell>
   );
