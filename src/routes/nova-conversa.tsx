@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { ConversaIA } from "@/components/ConversaIA";
+import { PreviewPanel } from "@/components/PreviewPanel";
 import { iasDisponiveis } from "@/lib/ias";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
