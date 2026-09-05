@@ -51,6 +51,12 @@ export function PreviewPanel() {
   }, [limitar]);
 
   useEffect(() => {
+    const padrao = posicaoPadrao();
+    setPos(limitar(padrao.x, padrao.y));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     setPos((p) => limitar(p.x, p.y));
     const onResize = () => setPos((p) => limitar(p.x, p.y));
     window.addEventListener("resize", onResize);
