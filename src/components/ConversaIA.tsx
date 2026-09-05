@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LogoMark } from "@/components/Logo";
 import { Bot, User, CheckCircle2, ListChecks, PlayCircle, Flag, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -74,7 +75,7 @@ export function ConversaIA() {
       <div className="flex-1 space-y-6">
         {mensagens.length === 0 && (
           <div className="rounded-2xl border border-border surface-command p-8 text-center">
-            <Bot className="mx-auto size-6 text-primary" />
+            <LogoMark className="mx-auto size-10" />
             <h2 className="mt-3 font-display text-xl font-semibold">
               Descreva o que você quer, em português simples
             </h2>
@@ -95,10 +96,10 @@ export function ConversaIA() {
         {mensagens.map((m) =>
           m.autor === "usuario" ? (
             <div key={m.id} className="flex justify-end gap-3">
-              <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-primary px-4 py-3 text-sm text-primary-foreground">
+              <div className="max-w-[80%] rounded-2xl rounded-br-sm brand-gradient px-4 py-3 text-sm font-medium">
                 {m.texto}
               </div>
-              <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-secondary text-secondary-foreground">
+              <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-border bg-secondary text-secondary-foreground">
                 <User className="size-4" />
               </span>
             </div>
