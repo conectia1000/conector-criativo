@@ -2,6 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { ConversaIA } from "@/components/ConversaIA";
+import { iasDisponiveis } from "@/lib/ias";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const titulo = "Nova conversa — Conect IA";
 const descricao =
@@ -20,6 +30,9 @@ export const Route = createFileRoute("/nova-conversa")({
 });
 
 function NovaConversa() {
+  const iasConectadas = iasDisponiveis.filter((ia) => ia.conectada);
+  const nenhumaConectada = iasConectadas.length === 0;
+
   return (
     <AppShell>
       <div className="mx-auto w-full max-w-4xl space-y-6 p-6">
@@ -27,8 +40,42 @@ function NovaConversa() {
           titulo="Nova conversa"
           descricao="Explique seu pedido com suas próprias palavras. A Conect IA responde sempre em quatro etapas."
         />
+
+        <div className="grid gap-4 rounded-xl border border-border bg-card p-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="nome-projeto">Projeto</Label>
+            <Input
+              id="nome-projeto"
+              placeholder="Novo projeto"
+              className="bg-transparent"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="ia-seletor">Conversar com:</Label>
+            <Select disabled={nenhumaConectada}>
+              <SelectTrigger id="ia-seletor" className="bg-transparent">
+                <SelectValue
+                  placeholder={
+                    nenhumaConectada
+                      ? "Conecte uma IA em Integrações para começar"
+                      : "Escolha uma IA"
+                  }
+                />
+              </SelectTrigger>
+              <SelectContent>
+                {iasDisponiveis.map((ia) => (
+                  <SelectItem key={ia.id} value={ia.id} disabled={!ia.conectada}>
+                    {ia.nome} ({ia.provedor}){!ia.conectada && " — Não conectada"}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
         <ConversaIA />
       </div>
     </AppShell>
   );
 }
+
