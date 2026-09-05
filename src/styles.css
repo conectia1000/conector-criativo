@@ -38,6 +38,8 @@
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
+  --color-brand-start: var(--brand-start);
+  --color-brand-end: var(--brand-end);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -62,27 +64,29 @@
 :root {
   --radius: 0.75rem;
 
-  --background: oklch(0.17 0.018 240);
-  --foreground: oklch(0.96 0.006 240);
+  --background: oklch(0.191 0.02 298.2);
+  --foreground: oklch(0.966 0.011 303.1);
 
-  --card: oklch(0.21 0.02 242);
-  --card-foreground: oklch(0.96 0.006 240);
-  --popover: oklch(0.21 0.02 242);
-  --popover-foreground: oklch(0.96 0.006 240);
+  --card: oklch(0.224 0.026 298.4);
+  --card-foreground: oklch(0.966 0.011 303.1);
+  --popover: oklch(0.224 0.026 298.4);
+  --popover-foreground: oklch(0.966 0.011 303.1);
 
-  --primary: oklch(0.82 0.13 178);
-  --primary-foreground: oklch(0.19 0.03 200);
+  --brand-start: oklch(0.686 0.214 5.9);
+  --brand-end: oklch(0.752 0.16 45.9);
+  --primary: oklch(0.686 0.214 5.9);
+  --primary-foreground: oklch(0.17 0.02 300);
 
-  --secondary: oklch(0.27 0.022 243);
-  --secondary-foreground: oklch(0.94 0.008 240);
+  --secondary: oklch(0.26 0.032 294.9);
+  --secondary-foreground: oklch(0.95 0.011 303);
 
-  --muted: oklch(0.25 0.02 243);
-  --muted-foreground: oklch(0.72 0.02 245);
+  --muted: oklch(0.26 0.032 294.9);
+  --muted-foreground: oklch(0.756 0.033 302.1);
 
-  --accent: oklch(0.29 0.03 200);
-  --accent-foreground: oklch(0.93 0.03 190);
+  --accent: oklch(0.3 0.045 340);
+  --accent-foreground: oklch(0.93 0.04 20);
 
-  --destructive: oklch(0.63 0.2 22);
+  --destructive: oklch(0.62 0.2 25);
   --destructive-foreground: oklch(0.98 0.005 240);
 
   --success: oklch(0.78 0.15 155);
@@ -91,33 +95,35 @@
   --warning: oklch(0.83 0.14 78);
   --warning-foreground: oklch(0.24 0.04 70);
 
-  --border: oklch(0.31 0.02 243);
-  --input: oklch(0.31 0.02 243);
-  --ring: oklch(0.82 0.13 178);
+  --border: oklch(0.305 0.028 297);
+  --input: oklch(0.305 0.028 297);
+  --ring: oklch(0.686 0.214 5.9);
 
-  --chart-1: oklch(0.82 0.13 178);
-  --chart-2: oklch(0.83 0.14 78);
-  --chart-3: oklch(0.72 0.11 220);
+  --chart-1: oklch(0.686 0.214 5.9);
+  --chart-2: oklch(0.752 0.16 45.9);
+  --chart-3: oklch(0.72 0.11 300);
   --chart-4: oklch(0.78 0.15 155);
   --chart-5: oklch(0.68 0.13 30);
 
-  --sidebar: oklch(0.14 0.016 242);
-  --sidebar-foreground: oklch(0.9 0.008 240);
-  --sidebar-primary: oklch(0.82 0.13 178);
-  --sidebar-primary-foreground: oklch(0.19 0.03 200);
-  --sidebar-accent: oklch(0.24 0.022 243);
-  --sidebar-accent-foreground: oklch(0.96 0.006 240);
-  --sidebar-border: oklch(0.26 0.02 243);
-  --sidebar-ring: oklch(0.82 0.13 178);
+  --sidebar: oklch(0.165 0.018 298);
+  --sidebar-foreground: oklch(0.93 0.011 303);
+  --sidebar-primary: oklch(0.686 0.214 5.9);
+  --sidebar-primary-foreground: oklch(0.17 0.02 300);
+  --sidebar-accent: oklch(0.26 0.032 295);
+  --sidebar-accent-foreground: oklch(0.97 0.011 303);
+  --sidebar-border: oklch(0.28 0.028 297);
+  --sidebar-ring: oklch(0.686 0.214 5.9);
 
+  --gradient-brand: linear-gradient(135deg, var(--brand-start) 0%, var(--brand-end) 100%);
   --gradient-command: linear-gradient(
-    135deg,
-    oklch(0.29 0.05 200) 0%,
-    oklch(0.2 0.025 245) 55%,
-    oklch(0.24 0.04 90) 140%
+    140deg,
+    oklch(0.29 0.06 350) 0%,
+    oklch(0.215 0.028 299) 55%,
+    oklch(0.26 0.05 40) 135%
   );
-  --shadow-panel: 0 24px 60px -30px oklch(0.05 0.02 240 / 0.9);
-  --shadow-glow: 0 0 0 1px oklch(0.82 0.13 178 / 0.25), 0 18px 50px -25px oklch(0.82 0.13 178 / 0.4);
+  --shadow-panel: 0 24px 60px -30px oklch(0.08 0.02 300 / 0.95);
+  --shadow-glow:
+    0 0 0 1px oklch(0.686 0.214 5.9 / 0.28), 0 18px 50px -28px oklch(0.686 0.214 5.9 / 0.5);
 }
 
 .dark {
@@ -152,4 +158,16 @@
 
 @utility panel-glow {
   box-shadow: var(--shadow-glow);
+}
+
+@utility brand-gradient {
+  background-image: var(--gradient-brand);
+  color: var(--primary-foreground);
+}
+
+@utility brand-text {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
