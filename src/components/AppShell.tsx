@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Badge } from "@/components/ui/badge";
+import { Logo } from "@/components/Logo";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -12,7 +13,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="flex min-w-0 flex-1 flex-col">
           <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-background/85 px-4 backdrop-blur">
             <SidebarTrigger />
-            <span className="font-display text-sm font-semibold">Conect IA</span>
+            <Logo className="[&_svg]:size-6" />
             <Badge variant="outline" className="ml-auto text-xs font-normal">
               Protótipo sem conexões
             </Badge>
