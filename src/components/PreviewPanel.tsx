@@ -26,7 +26,7 @@ function posicaoPadrao() {
 
 export function PreviewPanel() {
   const [estado, setEstado] = useState<"sincronizado" | "verificando">("sincronizado");
-  const [pos, setPos] = useState(posicaoPadrao);
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
   const [minimizado, setMinimizado] = useState(false);
   const [arrastando, setArrastando] = useState(false);
   const painelRef = useRef<HTMLDivElement | null>(null);
@@ -57,8 +57,7 @@ export function PreviewPanel() {
   }, []);
 
   useEffect(() => {
-    setPos((p) => limitar(p.x, p.y));
-    const onResize = () => setPos((p) => limitar(p.x, p.y));
+    const onResize = () => setPos((p) => (p ? limitar(p.x, p.y) : p));
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, [limitar, minimizado]);
@@ -119,7 +118,7 @@ export function PreviewPanel() {
       <div
         ref={painelRef}
         className="fixed z-50 flex items-center gap-2 rounded-full border border-border bg-card px-3 py-2 panel-glow"
-        style={{ left: pos.x, top: pos.y, cursor: arrastando ? "grabbing" : "grab", touchAction: "none" }}
+        style={{ left: pos?.x ?? 0, top: pos?.y ?? 0, cursor: arrastando ? "grabbing" : "grab", touchAction: "none" }}
         {...barraArraste}
       >
         <MonitorPlay className="h-4 w-4 text-muted-foreground" />
@@ -140,7 +139,7 @@ export function PreviewPanel() {
     <aside
       ref={painelRef}
       className="fixed z-50 flex w-[min(20rem,calc(100vw-1.5rem))] flex-col gap-4 rounded-xl border border-border bg-card p-4 panel-glow"
-      style={{ left: pos.x, top: pos.y }}
+      style={{ left: pos?.x ?? 0, top: pos?.y ?? 0, visibility: pos ? "visible" : "hidden" }}
     >
       <div
         className="-m-1 flex items-center justify-between gap-2 rounded-lg p-1 select-none"
