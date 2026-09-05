@@ -106,7 +106,6 @@ export function PreviewPanel() {
     onPointerMove: moverArraste,
     onPointerUp: soltarArraste,
     onPointerCancel: soltarArraste,
-    style: { touchAction: "none" as const },
   };
 
   if (minimizado) {
@@ -114,7 +113,7 @@ export function PreviewPanel() {
       <div
         ref={painelRef}
         className="fixed z-50 flex items-center gap-2 rounded-full border border-border bg-card px-3 py-2 panel-glow"
-        style={{ left: pos.x, top: pos.y, cursor: arrastando ? "grabbing" : "grab" }}
+        style={{ left: pos.x, top: pos.y, cursor: arrastando ? "grabbing" : "grab", touchAction: "none" }}
         {...barraArraste}
       >
         <MonitorPlay className="h-4 w-4 text-muted-foreground" />
@@ -139,7 +138,7 @@ export function PreviewPanel() {
     >
       <div
         className="-m-1 flex items-center justify-between gap-2 rounded-lg p-1 select-none"
-        style={{ cursor: arrastando ? "grabbing" : "grab" }}
+        style={{ cursor: arrastando ? "grabbing" : "grab", touchAction: "none" }}
         {...barraArraste}
       >
         <div className="flex items-center gap-2">
