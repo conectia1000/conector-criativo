@@ -5,6 +5,8 @@ import { AppShell, PageHeader } from "@/components/AppShell";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SeloConexao } from "@/components/IndisponivelAgora";
+import { DicaTermo } from "@/components/DicaTermo";
+
 import { iasDisponiveis } from "@/lib/ias";
 
 const titulo = "Integrações — Conect IA";
@@ -52,7 +54,14 @@ function Integracoes() {
         />
 
         <section className="space-y-4">
-          <h2 className="font-display text-lg font-semibold">Modelos de IA</h2>
+          <h2 className="flex items-center gap-2 font-display text-lg font-semibold">
+            Modelos de IA
+            <DicaTermo
+              termo="API"
+              explicacao="É a porta de entrada que permite dois programas conversarem entre si. Conectar uma IA por API significa dar permissão para ela responder dentro do seu projeto."
+            />
+          </h2>
+
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {iasDisponiveis.map((ia) => (
               <Card key={ia.id}>

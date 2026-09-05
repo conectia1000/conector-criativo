@@ -44,9 +44,10 @@ function Alteracoes() {
         </Card>
 
         <BlocoConexao
-          titulo="Nenhuma alteração registrada"
-          explicacao="O histórico de mudanças, com prévia antes e depois, aparece após a conexão da Conect IA ao seu projeto."
+          titulo="Nada foi alterado no seu projeto ainda"
+          explicacao="Cada mudança concluída vai aparecer aqui em uma linha do tempo: o que mudou, em qual página, quando, por qual pedido seu, com a comparação de antes e depois e o botão de desfazer. Nenhum registro é inventado enquanto não houver conexão."
         />
+
       </div>
     </AppShell>
   );
