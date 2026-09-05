@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { AppShell, PageHeader } from "@/components/AppShell";
 import { ConversaIA } from "@/components/ConversaIA";
+import { PreviewPanel } from "@/components/PreviewPanel";
 import { iasDisponiveis } from "@/lib/ias";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -35,13 +36,13 @@ function NovaConversa() {
 
   return (
     <AppShell>
-      <div className="mx-auto w-full max-w-4xl space-y-6 p-6">
+      <div className="mx-auto w-full max-w-7xl space-y-6 p-6">
         <PageHeader
           titulo="Nova conversa"
           descricao="Explique seu pedido com suas próprias palavras. A Conect IA responde sempre em quatro etapas."
         />
 
-        <div className="grid gap-4 rounded-xl border border-border bg-card p-4 sm:grid-cols-2">
+        <div className="grid gap-4 rounded-xl border border-border bg-card p-4 lg:grid-cols-[1fr,320px]">
           <div className="space-y-2">
             <Label htmlFor="nome-projeto">Projeto</Label>
             <Input
@@ -73,7 +74,10 @@ function NovaConversa() {
           </div>
         </div>
 
-        <ConversaIA />
+        <div className="grid items-start gap-6 lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_320px]">
+          <ConversaIA />
+          <PreviewPanel />
+        </div>
       </div>
     </AppShell>
   );
