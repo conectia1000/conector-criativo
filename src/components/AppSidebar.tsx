@@ -22,6 +22,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { LogoMark, Wordmark } from "@/components/Logo";
+
 
 const itens = [
   { title: "Início", url: "/", icon: Home },
@@ -42,17 +44,16 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="px-3 py-4">
         <div className="flex items-center gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary font-display text-sm font-bold text-primary-foreground">
-            CI
-          </span>
+          <LogoMark className="size-9 shrink-0" />
           {!recolhida && (
             <span className="flex flex-col leading-tight">
-              <span className="font-display text-base font-semibold">Conect IA</span>
+              <Wordmark />
               <span className="text-xs text-muted-foreground">Central de comando</span>
             </span>
           )}
         </div>
       </SidebarHeader>
+
 
       <SidebarContent>
         <SidebarGroup>
